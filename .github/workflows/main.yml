@@ -25,8 +25,8 @@ jobs:
       - name: Upload image to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: image-arm64
-          path: image-arm64.tar
+          name: image-ovs-arm64
+          path: image-ovs-arm64.tar
   push:
     needs:
       - build-arm64
@@ -39,11 +39,11 @@ jobs:
       - name: Download image
         uses: actions/download-artifact@v3
         with:
-          name: image-arm64
+          name: image-ovs-arm64
 
       - name: Load Image
         run: |
-          docker load --input image-arm64.tar
+          docker load --input image-ovs-arm64.tar
 
       - name: Push
         env:
