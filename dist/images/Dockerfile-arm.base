@@ -45,7 +45,7 @@ RUN apt update && apt upgrade -y && apt install ca-certificates python3 hostname
 RUN mkdir -p /var/run/openvswitch && \
     mkdir -p /var/run/ovn && \
     mkdir -p /etc/cni/net.d && \
-    mkdir -p /kube-ovn
+    mkdir -p /kube-ovn && \
     mkdir -p /opt/cni/bin
 
 COPY *.sh /kube-ovn/
