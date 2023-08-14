@@ -12,6 +12,12 @@ base-amd64:
 base-arm64:
 	docker buildx build --platform linux/arm64 --build-arg ARCH=arm64 -t $(REGISTRY)/kube-ovn-base:$(RELEASE_TAG)-arm64 -o type=docker -f dist/images/Dockerfile.base dist/images/
 
+.PHONY: base-arm64-ovs
+base-arm64-ovs:
+        docker buildx build --platform linux/arm64 --build-arg ARCH=arm64 -t $(REGISTRY)/kube-ovn-base:$(RELEASE_TAG)-arm64 -o type=docker -f dist/images/Dockerfile-arm.base dist/images/
+
+
+
 .PHONY: base-tar-amd64
 base-tar-amd64:
 	docker save $(REGISTRY)/kube-ovn-base:$(RELEASE_TAG)-amd64 -o image-amd64.tar
