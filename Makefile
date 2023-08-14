@@ -1,5 +1,5 @@
 REGISTRY = etcdnecx
-RELEASE_TAG = $(shell cat VERSION)
+RELEASE_TAG = v2.17
 
 # ARCH could be amd64,arm64
 ARCH = amd64
