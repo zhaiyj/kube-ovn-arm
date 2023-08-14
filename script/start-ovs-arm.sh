@@ -35,8 +35,8 @@ cat /proc/cmdline"
 fi
 
 function quit {
-	/usr/share/openvswitch/scripts/ovs-ctl stop
-	exit 0
+    /usr/share/openvswitch/scripts/ovs-ctl stop
+    exit 0
 }
 trap quit EXIT
 
@@ -167,3 +167,4 @@ sleep ${FLOW_WAIT}
 ovs-vsctl --no-wait set open_vswitch . other_config:flow-restore-wait="false"
 
 chmod 600 /etc/openvswitch/*
+tail -f   /var/log/openvswitch/ovs-vswitchd.log
