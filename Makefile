@@ -24,6 +24,10 @@ base-tar-amd64:
 base-tar-arm64:
 	docker save $(REGISTRY)/kube-ovn-base:$(RELEASE_TAG)-arm64 -o image-arm64.tar
 
+.PHONY: base-tar-ovs-arm64
+base-tar-ovs-arm64:
+	docker save $(REGISTRY)/ovs-base:$(RELEASE_TAG)-arm64 -o image-ovs-arm64.tar
+
 .PHONY: clean
 clean:
 	$(RM) image-amd64.tar image-arm64.tar
