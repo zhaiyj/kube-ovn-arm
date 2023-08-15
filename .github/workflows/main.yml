@@ -19,7 +19,7 @@ jobs:
 
       - name: Build
         run: |
-          TAG=base-ovs make base-arm64-ovs
+          make base-arm64-ovs
           
       - name: Push
         env:
