@@ -1,5 +1,5 @@
-REGISTRY = etcdnecx
-RELEASE_TAG = v2.17
+REGISTRY = kube-ovn
+RELEASE_TAG = $TAG
 
 # ARCH could be amd64,arm64
 ARCH = amd64
