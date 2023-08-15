@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: |
           TAG=base-ovs-arm make  base-arm64-ovs
-          make  base-tar-ovs-arm64
+          TAG=base-ovs-arm make  base-tar-ovs-arm64
           
       - name: Upload image to artifact
         uses: actions/upload-artifact@v3
