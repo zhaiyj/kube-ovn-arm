@@ -1,5 +1,5 @@
 REGISTRY = kube-ovn
-RELEASE_TAG = $TAG
+RELEASE_TAG = base-ovs
 
 # ARCH could be amd64,arm64
 ARCH = amd64
