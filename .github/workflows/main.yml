@@ -19,32 +19,8 @@ jobs:
 
       - name: Build
         run: |
-          TAG=base-ovs make  base-arm64-ovs
-          TAG=base-ovs make  base-tar-ovs-arm64
+          TAG=base-ovs make base-arm64-ovs
           
-      - name: Upload image to artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: image-ovs-arm64
-          path: image-ovs-arm64.tar
-  push:
-    needs:
-      - build-arm64
-    name: push
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3 
-        
-      - name: Download image
-        uses: actions/download-artifact@v3
-        with:
-          name: image-ovs-arm64
-
-      - name: Load Image
-        run: |
-          docker load --input image-ovs-arm64.tar
-
       - name: Push
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -55,3 +31,6 @@ jobs:
           docker images
           docker tag kube-ovn/ovs-base:base-ovs-arm64 zhaiyj2/ovs-base:base-ovs-arm
           docker push zhaiyj2/ovs-base:base-ovs-arm
+          
+     
+ 
