@@ -51,9 +51,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           COMMIT: ${{ github.sha }}
         run: |
-          cat VERSION
-          TAG=$(cat VERSION)
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           docker images
-          docker tag kube-ovn/kube-ovn:base-ovs-arm zhaiyj/kube-ovn:base-ovs-arm
-          docker push kubeovn/ovs-base:$TAG-arm64
+          docker tag kube-ovn/ovs-base:base-ovs-arm zhaiyj2/ovs-base:base-ovs-arm
+          docker push zhaiyj2/ovs-base:base-ovs-arm
