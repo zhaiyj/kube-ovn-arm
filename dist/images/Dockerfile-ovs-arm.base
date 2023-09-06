@@ -16,7 +16,7 @@ RUN cd /usr/src/ && \
     if [ "$ARCH" = "amd64" -a "$NO_AVX512" = "true" ]; then curl -s https://github.com/kubeovn/ovs/commit/c257b0794b827cfae9660a9f3238bee8a29e7676.patch | git apply; fi && \
     ./boot.sh && \
     rm -rf .git && \
-    CONFIGURE_OPTS='CC="clang"' && \
+    CONFIGURE_OPTS='' && \
     if [ "$ARCH" = "amd64" ]; then CONFIGURE_OPTS='CFLAGS="-O2 -g -msse4.2 -mpopcnt"'; fi && \    
     DATAPATH_CONFIGURE_OPTS='--prefix=/usr' EXTRA_CONFIGURE_OPTS=$CONFIGURE_OPTS DEB_BUILD_OPTIONS='parallel=8 nocheck' fakeroot debian/rules binary    
 
