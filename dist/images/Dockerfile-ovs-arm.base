@@ -8,7 +8,7 @@ ENV SRC_DIR='/usr/src'
 RUN apt update && apt install build-essential git libnuma-dev autoconf curl \
     python3 libmnl-dev libpcap-dev libtool libcap-ng-dev libssl-dev pkg-config \
     python3-six libunbound-dev libunwind-dev dh-make fakeroot debhelper dh-python \
-    flake8 python3-sphinx graphviz groff wget libjemalloc-dev -y
+    flake8 python3-sphinx graphviz groff wget libjemalloc-dev clang -y
 
 RUN cd /usr/src/ && \
     git clone -b branch-2.17 --depth=1 https://github.com/zhaiyj/ovs.git && \
